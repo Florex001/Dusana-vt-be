@@ -1,9 +1,9 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://bgbktjelvvok3rzysddo-mysql.services.clever-cloud.com/bgbktjelvvok3rzysddo?createDatabaseIfNotExist=true
-    username: ul9bbptz5su7bthc
-    password: rHghJl337MVcLCvizPnO
+    url: jdbc:mysql://localhost:3306/bgbktjelvvok3rzysddo?createDatabaseIfNotExist=true
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
