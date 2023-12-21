@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class AdminsDto {
 
-    private String id;
+    private Integer id;
     private String username;
     private String password;
 

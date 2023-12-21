@@ -7,6 +7,6 @@ import java.util.List;
 public interface NewsService {
     public List<NewsDto> getAllNews();
     public void createNews(NewsDto newsDto);
-    public void deleteNews(String id);
+    public void deleteNews(int id);
 
 }

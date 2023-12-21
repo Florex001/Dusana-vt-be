@@ -8,6 +8,6 @@ public interface MembersService {
 
     public void createMember();
     public List<MembersDto> getAllMembers();
-    public void deleteMembers(String id);
+    public void deleteMembers(int id);
 
 }

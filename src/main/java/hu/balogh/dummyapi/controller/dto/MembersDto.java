@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class MembersDto {
-    private String id;
+    private Integer id;
     private String name;
     private String position;
     private String phoneNumber;

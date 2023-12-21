@@ -43,7 +43,7 @@ public class NewsController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteNews(@PathVariable String id){
+    public ResponseEntity<String> deleteNews(@PathVariable int id){
         try {
             newsService.deleteNews(id);
             return ResponseEntity.status(HttpStatus.OK).body("Sikeres törlés");

@@ -55,7 +55,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void deleteNews(String id) {
+    public void deleteNews(int id) {
         if (StringUtils.isEmpty(id)) {
             logger.warn("A hír azonosítója nem lehet üres.");
             return;

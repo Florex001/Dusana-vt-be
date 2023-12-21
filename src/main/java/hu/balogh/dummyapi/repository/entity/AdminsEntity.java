@@ -1,17 +1,17 @@
 package hu.balogh.dummyapi.repository.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Data
-@AllArgsConstructor
-@Document(collection = "Admin")
+@Entity
+@Table(name = "Admins")
 public class AdminsEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String username;
     private String password;
 

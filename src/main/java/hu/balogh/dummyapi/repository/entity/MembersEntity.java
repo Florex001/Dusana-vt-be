@@ -1,17 +1,16 @@
 package hu.balogh.dummyapi.repository.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@AllArgsConstructor
-@Document(collection = "Members")
+@Entity
+@Table(name = "Members")
 public class MembersEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
     private String position;
     private String phoneNumber;

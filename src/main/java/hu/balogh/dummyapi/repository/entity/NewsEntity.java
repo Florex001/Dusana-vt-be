@@ -1,19 +1,18 @@
 package hu.balogh.dummyapi.repository.entity;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@Document(collection = "News")
+@Entity
+@Table(name = "News")
 public class NewsEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String temacim;
     private LocalDateTime temadatum;
     private String temaleiras;
