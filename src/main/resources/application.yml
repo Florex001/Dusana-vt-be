@@ -2,7 +2,8 @@
 spring:
   data:
     mongodb:
-      uri: "mongodb+srv://kosuthvt:i79FwnoIqdROzLtS@southvt-be.873qgat.mongodb.net/southvt-be?tls=true&tlsInsecure=true"
+      uri: "mongodb+srv://kosuthvt:i79FwnoIqdROzLtS@southvt-be.873qgat.mongodb.net/southvt-be?tls=true&ssl=true&readPreference=secondary"
+
 
 logging:
   level:
