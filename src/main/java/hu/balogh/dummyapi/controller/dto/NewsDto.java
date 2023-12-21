@@ -11,5 +11,6 @@ public class NewsDto {
     private Integer id;
     private String temacim;
     private LocalDateTime temadatum;
+
     private String temaleiras;
 }
