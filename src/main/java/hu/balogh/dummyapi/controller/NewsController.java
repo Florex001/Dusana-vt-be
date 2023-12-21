@@ -11,7 +11,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/news")
-@CrossOrigin(origins = {"https://kossuth-vt-xgjc.vercel.app", "https://kossuth-vt-8zfc.vercel.app"})
+@CrossOrigin(origins = {"https://kossuth-vt-xgjc.vercel.app", "https://kossuth-vt-8zfc.vercel.app"},
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE},
+        allowedHeaders = "*", allowCredentials = "true")
 public class NewsController {
 
     private NewsService newsService;
