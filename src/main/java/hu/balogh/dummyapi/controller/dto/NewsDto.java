@@ -3,6 +3,7 @@ package hu.balogh.dummyapi.controller.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 public class NewsDto {
     private Integer id;
     private String temacim;
-    private LocalDateTime temadatum;
+    private LocalDate temadatum;
 
     private String temaleiras;
 }
