@@ -4,8 +4,6 @@ spring:
     url: jdbc:mysql://roundhouse.proxy.rlwy.net:52390/railway
     username: root
     password: -3eGG3g422cGe565f6e4252DDdD4ae43
-    hikari:
-      max-lifetime: 0
   jpa:
     hibernate:
       ddl-auto: update
