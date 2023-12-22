@@ -18,8 +18,8 @@ public class DummyApiApplication {
 	@Bean
 	public OpenAPI openAPI(){
 		Info info = new Info()
-				.title("Kosuth vadásztársaság")
-				.description("Kosuth Vadásztársaság API.")
+				.title("Pancser Team Horgásztársaság API.")
+				.description("Pancser Team Horgásztársaság API.")
 				.license(new License()
 						.name("Apache 2.0")
 						.url("https://www.apache.org/licenses/LICENSE-2.0"))
