@@ -4,19 +4,24 @@ spring:
     url: jdbc:mysql://sql11.freesqldatabase.com:3306/sql11672071?createDatabaseIfNotExist=true
     username: sql11672071
     password: dq7ZEKhYV3
+    hikari:
+      max-lifetime: 0
   jpa:
     hibernate:
       ddl-auto: update
-      dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.MySQL5Dialect
     open-in-view: false
+    show-sql: true
+
 
 
 logging:
   level:
-    root: INFO
+    root: null
     hu.balogh.dummyapi: DEBUG
     org:
       hibernate: debug
+    sql: debug
 
 springdoc:
   swagger-ui:
