@@ -1,6 +1,7 @@
 package hu.balogh.dummyapi.service.Impl;
 
 import hu.balogh.dummyapi.controller.dto.NewsDto;
+import hu.balogh.dummyapi.controller.dto.NewsPostDTO;
 import hu.balogh.dummyapi.mapper.NewsMapper;
 import hu.balogh.dummyapi.repository.NewsRepository;
 import hu.balogh.dummyapi.repository.entity.NewsEntity;
@@ -36,17 +37,17 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void createNews(NewsDto newsDto) {
-        if (newsDto != null){
-            if (StringUtils.isEmpty(newsDto.getTemacim())) {
+    public void createNews(NewsPostDTO newsPostDTO) {
+        if (newsPostDTO != null){
+            if (StringUtils.isEmpty(newsPostDTO.getTemacim())) {
                 logger.warn("A téma címe nem lehet üres.");
                 return;
             }
-            if (StringUtils.isEmpty(newsDto.getTemadatum())) {
+            if (StringUtils.isEmpty(newsPostDTO.getTemadatum())) {
                 logger.warn("A téma dátum nem lehet üres.");
                 return;
             }
-            NewsEntity newsEntity = NewsMapper.INSTANCE.toEntity(newsDto);
+            NewsEntity newsEntity = NewsMapper.INSTANCE.toEntityPost(newsPostDTO);
             newsRepository.save(newsEntity);
             logger.info("News mentésre került.");
         }else {

@@ -1,6 +1,7 @@
 package hu.balogh.dummyapi.controller;
 
 import hu.balogh.dummyapi.controller.dto.NewsDto;
+import hu.balogh.dummyapi.controller.dto.NewsPostDTO;
 import hu.balogh.dummyapi.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,9 +35,9 @@ public class NewsController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> saveNews(@RequestBody NewsDto newsDto){
+    public ResponseEntity<String> saveNews(@RequestBody NewsPostDTO newsPostDTO){
         try {
-            newsService.createNews(newsDto);
+            newsService.createNews(newsPostDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body("Sikeres létrehozás.");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Érvénytelen kérés.");

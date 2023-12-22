@@ -1,6 +1,7 @@
 package hu.balogh.dummyapi.mapper;
 
 import hu.balogh.dummyapi.controller.dto.NewsDto;
+import hu.balogh.dummyapi.controller.dto.NewsPostDTO;
 import hu.balogh.dummyapi.repository.entity.NewsEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -24,6 +25,11 @@ public interface NewsMapper {
     @Mapping(source = "temadatum", target = "temadatum")
     @Mapping(source = "temaleiras", target = "temaleiras")
     List<NewsDto> toDtoList(List<NewsEntity> newsEntity);
+
+    @Mapping(source = "temacim", target = "temacim")
+    @Mapping(source = "temadatum", target = "temadatum")
+    @Mapping(source = "temaleiras", target = "temaleiras")
+    NewsEntity toEntityPost(NewsPostDTO newsPostDTO);
 
 
 }
