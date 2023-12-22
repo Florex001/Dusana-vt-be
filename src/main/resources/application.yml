@@ -15,13 +15,7 @@ spring:
 
 
 
-logging:
-  level:
-    root: null
-    hu.balogh.dummyapi: DEBUG
-    org:
-      hibernate: debug
-    sql: debug
+
 
 springdoc:
   swagger-ui:
