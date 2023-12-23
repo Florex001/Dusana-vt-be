@@ -12,9 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/news")
-@CrossOrigin(origins = {"*"},
-        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE},
-        allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin()
 public class NewsController {
 
     private NewsService newsService;
