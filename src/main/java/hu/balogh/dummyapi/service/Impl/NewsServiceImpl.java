@@ -38,35 +38,14 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public void createNews(NewsPostDTO newsPostDTO) {
-        if (newsPostDTO != null){
-            if (StringUtils.isEmpty(newsPostDTO.getTemacim())) {
-                logger.warn("A téma címe nem lehet üres.");
-                return;
-            }
-            if (StringUtils.isEmpty(newsPostDTO.getTemadatum())) {
-                logger.warn("A téma dátum nem lehet üres.");
-                return;
-            }
             NewsEntity newsEntity = NewsMapper.INSTANCE.toEntityPost(newsPostDTO);
             newsRepository.save(newsEntity);
             logger.info("News mentésre került.");
-        }else {
-            logger.warn("A news üres volt így nem került mentésre.");
-        }
     }
 
     @Override
     public void deleteNews(int id) {
-        if (StringUtils.isEmpty(id)) {
-            logger.warn("A hír azonosítója nem lehet üres.");
-            return;
-        }
-
-        try {
             newsRepository.deleteById(id);
             logger.info("Sikeresen törölte a hírt: {}", id);
-        } catch (EmptyResultDataAccessException e) {
-            logger.warn("A hír nem található az azonosító alapján: {}", id);
-        }
     }
 }

@@ -1,9 +1,9 @@
 package hu.balogh.dummyapi.repository;
 
-import hu.balogh.dummyapi.repository.entity.MembersEntity;
+import hu.balogh.dummyapi.repository.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MembersRepository extends JpaRepository<MembersEntity, Integer> {
+public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
 }

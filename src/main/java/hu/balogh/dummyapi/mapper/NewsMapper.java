@@ -18,12 +18,6 @@ public interface NewsMapper {
     @Mapping(source = "temacim", target = "temacim")
     @Mapping(source = "temadatum", target = "temadatum")
     @Mapping(source = "temaleiras", target = "temaleiras")
-    NewsEntity toEntity(NewsDto newsDto);
-
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "temacim", target = "temacim")
-    @Mapping(source = "temadatum", target = "temadatum")
-    @Mapping(source = "temaleiras", target = "temaleiras")
     List<NewsDto> toDtoList(List<NewsEntity> newsEntity);
 
     @Mapping(source = "temacim", target = "temacim")

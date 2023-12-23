@@ -26,36 +26,20 @@ public class NewsController {
 
     @GetMapping("/getAllNews")
     public ResponseEntity<List<NewsDto>> getAllNews() {
-        try {
-            List<NewsDto> newsDto = newsService.getAllNews();
-            return ResponseEntity.ok().body(newsDto);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+        List<NewsDto> newsDto = newsService.getAllNews();
+        return ResponseEntity.status(HttpStatus.OK).body(newsDto);
     }
 
     @PostMapping()
-    public ResponseEntity<String> saveNews(@RequestBody NewsPostDTO newsPostDTO){
-        try {
-            newsService.createNews(newsPostDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Sikeres létrehozás.");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Érvénytelen kérés.");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Sikertelen létrehozás.");
-        }
+    public ResponseEntity saveNews(@RequestBody NewsPostDTO newsPostDTO){
+        newsService.createNews(newsPostDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteNews(@PathVariable int id){
-        try {
-            newsService.deleteNews(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Sikeres törlés");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Érvénytelen kérés.");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Sikertelen törlés.");
-        }
+    public ResponseEntity deleteNews(@PathVariable int id){
+        newsService.deleteNews(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 }
 
