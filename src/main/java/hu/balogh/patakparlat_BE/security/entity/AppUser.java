@@ -1,5 +1,6 @@
 package hu.balogh.patakparlat_BE.security.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class AppUser implements UserDetails {
     private Integer userID;
     @Column(unique = true)
     private String username;
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
