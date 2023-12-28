@@ -5,8 +5,6 @@ import hu.balogh.patakparlat_BE.security.controller.dto.LoginResponseDto;
 import hu.balogh.patakparlat_BE.security.controller.dto.RegistrationDto;
 import hu.balogh.patakparlat_BE.security.entity.AppUser;
 import hu.balogh.patakparlat_BE.security.service.AuthenticationService;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,20 +27,8 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public LoginResponseDto loginUser(@RequestBody LoginDto loginDto, HttpServletResponse response){
-        LoginResponseDto loginResponse = authenticationService.loginUser(loginDto.getUsername(), loginDto.getPassword());
-
-        if (loginResponse != null) {
-            Cookie tokenCookie = new Cookie("__serverSecured", loginResponse.getJwt());
-
-            tokenCookie.setMaxAge(30 * 60);
-            tokenCookie.setSecure(true);
-            tokenCookie.setHttpOnly(true);
-
-            response.addCookie(tokenCookie);
-        }
-
-        return loginResponse;
+    public LoginResponseDto loginUser(@RequestBody LoginDto loginDto){
+        return authenticationService.loginUser(loginDto.getUsername(), loginDto.getPassword());
     }
 
 
