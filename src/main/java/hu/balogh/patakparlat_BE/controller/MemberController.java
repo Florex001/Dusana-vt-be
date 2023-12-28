@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/member")
-@CrossOrigin(origins = {"https://patak-parlat.vercel.app/", "https://patak-parlat-shrt.vercel.app/", "http://localhost:3000"},
+@CrossOrigin(origins = {"https://patak-parlat.com/", "https://patak-parlat-admin.netlify.app/", "http://localhost:3000"},
         methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE},
         allowedHeaders = "*", allowCredentials = "true")
 public class MemberController {
