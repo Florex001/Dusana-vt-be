@@ -12,9 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/news")
-@CrossOrigin(origins = {"https://patak-parlat.com/", "https://patak-parlat-admin.netlify.app/", "http://localhost:3000"},
-        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE},
-        allowedHeaders = "*", allowCredentials = "true")
 public class NewsController {
 
     private NewsService newsService;

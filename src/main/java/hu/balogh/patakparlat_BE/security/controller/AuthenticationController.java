@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {"https://patak-parlat.com/", "https://patak-parlat-admin.netlify.app/", "http://localhost:3000"},
-        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE},
-        allowedHeaders = "*", allowCredentials = "true")
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
