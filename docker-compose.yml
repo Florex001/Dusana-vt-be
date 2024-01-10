@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: patakparlat-be
+    command: java -jar app.jar
+    ports:
+      - "8081:8081"
+    restart: always
+    volumes:
+      - /srv/baloghbackend/patak-parlat-be/volume:/src/src/data
