@@ -11,7 +11,7 @@ RUN mvn clean package
 FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
-WORKDIR /app
+WORKDIR /appasd
 COPY --from=build /app/target/dummyAPI-23R12.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
