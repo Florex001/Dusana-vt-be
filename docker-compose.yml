@@ -10,4 +10,4 @@ services:
       - "8081:8081"
     restart: always
     volumes:
-      - /srv/baloghbackend/patak-parlat-be/volume:/src/src/data
+      - /home/dasza/app/patak-parlat-be/volume:/src/src/data
