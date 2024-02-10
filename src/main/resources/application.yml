@@ -2,6 +2,8 @@ server:
   port: 8081
 spring:
   datasource:
+    #172.17.0.1
+    #25.20.56.232
     url: jdbc:mysql://172.17.0.1:3306/patakparlat
     username: root
     password: macilaci2024
