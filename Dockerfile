@@ -18,5 +18,5 @@
 
 FROM openjdk:21-jdk
 EXPOSE 8081
-ADD target/20240110-1.jar 20240110-1.jar
-ENTRYPOINT ["java", "-jar", "/20240110-1.jar"]
+ADD target/${project.version}.jar ${project.version}.jar
+ENTRYPOINT ["java", "-jar", "/${project.version}.jar"]
