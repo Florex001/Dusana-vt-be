@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>hu.balogh</groupId>
 	<artifactId>dummyAPI</artifactId>
-	<version>23R12</version>
-	<name>dummyAPI</name>
-	<description>Kosuth vadásztársaság API</description>
+	<version>20240211</version>
+	<name>patak-parlat-be</name>
+	<description>Patak Párlat pálinkafőzde API</description>
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
