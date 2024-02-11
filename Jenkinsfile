@@ -5,9 +5,22 @@ pipeline{
     }
     environment {
         LASTIMAGE = sh(script: 'docker images --filter=reference=\'balogh/patak-parlat-be*\' --format \'{{.Repository}}:{{.Tag}}\' | head -n 1', returnStdout: true).trim()
-        PROJECT_VERSION = sh(script: "grep '<finalName>' pom.xml | head -n 1 | awk -F'>' '{print \$2}' | awk -F'<' '{print \$1}'", returnStdout: true).trim()
+        PROJECT_VERSION = null
     }
     stages{
+        stage('Clone repository'){
+            steps{
+                script{
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Florex001/patak-parlat-be.git']])
+
+                    // Kinyerjük a projektverziót a pom.xml-ből
+                    PROJECT_VERSION = sh(script: "grep '<finalName>' pom.xml | head -n 1 | awk -F'>' '{print \$2}' | awk -F'<' '{print \$1}'", returnStdout: true).trim()
+
+                    // Globális változóba mentjük a projektverziót
+                    env.PROJECT_VERSION = PROJECT_VERSION
+                }
+            }
+        }
         stage('Display Project Version'){
             steps{
                 script {
@@ -35,8 +48,16 @@ pipeline{
         }
         stage('Build Maven'){
             steps{
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Florex001/patak-parlat-be.git']])
-                sh 'mvn clean install'
+                script{
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Run Test'){
+            steps{
+                script {
+                    sh 'mvn test'
+                }
             }
         }
         stage('Build Docker Image'){
