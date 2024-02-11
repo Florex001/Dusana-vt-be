@@ -71,7 +71,7 @@ pipeline{
         stage('Run Docker Image'){
             steps {
                 script {
-                    sh 'docker run -d --name patak-parlat-be -p 8081:8081 balogh/patak-parlat-be:${PROJECT_VERSION}'
+                    sh "docker run -d --name patak-parlat-be -p 8081:8081 balogh/patak-parlat-be:${PROJECT_VERSION}"
                 }
             }
         }
