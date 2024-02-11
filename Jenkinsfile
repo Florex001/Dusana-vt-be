@@ -28,7 +28,7 @@ pipeline{
                 }
             }
         }
-        stage('Stop docker container') {
+        stage('Stop&Remove docker container') {
             steps {
                 script {
                     def existingContainerId = sh(script: 'docker ps -q -a -f "ancestor=${LASTIMAGE}"', returnStdout: true).trim()
